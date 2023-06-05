@@ -11,13 +11,13 @@ int check_cycle(listint_t *list)
 	{
 		listint_t val, srt;
 
-		for (srt.n = 1, val.next = list->next; val.next; srt.n++, list = c.next)
+		for (srt.n = 1, val.next = list->next; val.next; srt.n++, list = srt.next)
 		{
 			for (val.n = 0, srt.next = list; list != val.next; val.n++)
 			{
 				list = list->next;
 			}
-			if (val.e != srt.n)
+			if (val.n != srt.n)
 			{
 				return (1);
 			}
