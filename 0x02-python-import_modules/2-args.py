@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     if t_arg == 0:
         print("{} arguments.".format(t_arg))
-    if t_arg > 0:
+    if t_arg >= 1:
         print("{} arguments:".format(t_arg))
     if t_arg > 0:
         for i in range(1, t_arg + 1):
