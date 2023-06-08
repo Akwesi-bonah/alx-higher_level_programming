@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 import sys
-t_arg = len(sys.argv) - 1
 
 if __name__ == "__main__":
+    t_arg = len(sys.argv) - 1
+
     if t_arg == 0:
         print("{} arguments.".format(t_arg))
     if t_arg > 0:
