@@ -5,7 +5,7 @@ def safe_print_list(my_list=[], x=0):
         try:
             len += 1
             print(my_list[i], end='')
-        except:
+        except ValueError:
             len -= 1
             break
     print()
