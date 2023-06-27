@@ -1,6 +1,8 @@
 #!/usr/bin/pyhton3
 
+
 """Define a class Square."""
+
 
 class Square:
     """Initialize a new square.
@@ -21,12 +23,12 @@ class Square:
         self.__position = position
 
     def area(self):
-         """Return the current area of the square."""
+        """Return the current area of the square."""
         return self.__size**2
 
     @property
-    """Get/set the current size of the square."""
     def size(self):
+        """ Get/set the size of the sqaure"""
         return self.__size
 
     @size.setter
@@ -45,7 +47,7 @@ class Square:
             for i in range(self.__position[1]):
                 print()
             for i in range(self.__size):
-                print("_" * self.__position[0] + "#" * self.__size)
+                print(" " * self.__position[0] + "#" * self.__size)
 
     @property
     def position(self):

@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
+
 """Define a class Square."""
+class Square:
 
 class Square:
 
@@ -9,15 +11,15 @@ class Square:
         Args:
             size (int): The size of the new square.
         """
+
         if type(size) is not int:
             raise TypeError("size must be an integer")
-        if size >= 0:
-            self.__size = size
-        else:
+        elif size < 0:
             raise ValueError("size must be >= 0")
+        self.__size = size
 
     def area(self):
-         """Return the current area of the square."""
+        """ Retuen the area the square"""
         return self.__size**2
 
     @property
@@ -35,8 +37,9 @@ class Square:
             raise ValueError("size must be >= 0")
 
     def my_print(self):
-         """Print the square with the # character."""
+        """Print the square with the # character."""
         if self.__size == 0:
             print()
+
         for i in range(1, self.__size + 1):
             print("#" * self.__size)
