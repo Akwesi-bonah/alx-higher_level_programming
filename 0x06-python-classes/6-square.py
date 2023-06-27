@@ -1,6 +1,15 @@
 #!/usr/bin/pyhton3
+
+"""Define a class Square."""
+
 class Square:
+    """Initialize a new square.
+        Args:
+            size (int): The size of the new square.
+            position (int, int): The position of the new square.
+        """
     def __init__(self, size=0, position=(0, 0)):
+
         if type(position[0]) and type(position[1]) is not int:
             raise TypeError("position must be a tuple of 2 positive integers")
         if type(size) is not int:
@@ -12,9 +21,11 @@ class Square:
         self.__position = position
 
     def area(self):
+         """Return the current area of the square."""
         return self.__size**2
 
     @property
+    """Get/set the current size of the square."""
     def size(self):
         return self.__size
 
@@ -38,6 +49,7 @@ class Square:
 
     @property
     def position(self):
+        """Get/set the current position of the square."""
         return self.__position
 
     @position.setter

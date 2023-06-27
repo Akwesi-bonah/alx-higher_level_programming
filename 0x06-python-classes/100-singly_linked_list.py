@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+"""Define a class Node """
+
 class Node:
     def __init__(self, data, next_node=None):
         self.__data = data
@@ -6,6 +9,7 @@ class Node:
 
     @property
     def data(self):
+        """Get/set the data of the Node."""
         return self.__data
 
     @data.setter
@@ -17,6 +21,7 @@ class Node:
 
     @property
     def next_node(self):
+        """Get/set the next_node of the Node."""
         return self.__next_node
 
     @next_node.setter
@@ -27,11 +32,17 @@ class Node:
             self.__next_node = value
 
 
+""" Define a class singleylinked list"""
+
 class SinglyLinkedList:
+    """Represent a singly-linked list."""
+
     def __init__(self):
+        """Initalize a new SinglyLinkedList."""
         self.__head = None
 
     def __str__(self):
+        """Define the print() representation of a SinglyLinkedList."""
         if self.__head is None:
             return ""
         nodes = []
@@ -42,6 +53,12 @@ class SinglyLinkedList:
         return "\n".join(nodes)
 
     def sorted_insert(self, value):
+         """Insert a new Node to the SinglyLinkedList.
+        The node is inserted into the list at the correct
+        ordered numerical position.
+        Args:
+            value (Node): The new Node to insert.
+        """
         new_node = Node(value)
 
         if self.__head is None or value < self.__head.data:
