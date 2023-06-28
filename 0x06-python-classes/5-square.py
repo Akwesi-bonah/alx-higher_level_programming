@@ -1,8 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 
 """Define a class Square."""
-class Square:
+
 
 class Square:
 
