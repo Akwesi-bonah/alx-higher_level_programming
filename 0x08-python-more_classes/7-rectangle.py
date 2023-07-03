@@ -4,12 +4,16 @@
 
 class Rectangle:
     """Represent a rectangle"""
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         """initial a new Rectangle
         Args:
             width: define the width of the rectangle
             height: define the height of the rectangle
         """
+        type(self).number_of_instances += 1
         self.__width = width
         self.__height = height
 
@@ -54,13 +58,46 @@ class Rectangle:
 
         return a + b
 
+    def __str__(self):
+        """Printable representation of Rectangle
+        print rectangle with #
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        rect = [str(self.print_symbol) * self.__width + '\n' for _ in range(self.__height)]
+        return ''.join(rect)
+
+    def __repr__(self):
+        """Return string representation of the rectangle"""
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """Return message when the class is deleted"""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
+
 
 if __name__ == "__main__":
-    my_rectangle = Rectangle(2, 4)
-    print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+    my_rectangle_1 = Rectangle(8, 4)
+    print(my_rectangle_1)
+    print("--")
+    my_rectangle_1.print_symbol = "&"
+    print(my_rectangle_1)
+    print("--")
+
+    my_rectangle_2 = Rectangle(2, 1)
+    print(my_rectangle_2)
+    print("--")
+    Rectangle.print_symbol = "C"
+    print(my_rectangle_2)
+    print("--")
+
+    my_rectangle_3 = Rectangle(7, 3)
+    print(my_rectangle_3)
 
     print("--")
 
-    my_rectangle.width = 10
-    my_rectangle.height = 3
-    print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+    my_rectangle_3.print_symbol = ["C", "is", "fun!"]
+    print(my_rectangle_3)
+
+    print("--")

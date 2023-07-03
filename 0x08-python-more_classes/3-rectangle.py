@@ -4,12 +4,14 @@
 
 class Rectangle:
     """Represent a rectangle"""
+
     def __init__(self, width=0, height=0):
         """initial a new Rectangle
         Args:
             width: define the width of the rectangle
             height: define the height of the rectangle
         """
+
         self.__width = width
         self.__height = height
 
@@ -54,13 +56,26 @@ class Rectangle:
 
         return a + b
 
+    def __str__(self):
+        """Printable representation of Rectangle
+        print rectangle with #
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        rect = ['#' * self.__width + '\n' for i in range(self.__height)]
+        return ''.join(rect)
+
 
 if __name__ == "__main__":
     my_rectangle = Rectangle(2, 4)
     print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
 
+    print(str(my_rectangle))
+    print(repr(my_rectangle))
+
     print("--")
 
     my_rectangle.width = 10
     my_rectangle.height = 3
-    print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+    print(my_rectangle)
+    print(repr(my_rectangle))
