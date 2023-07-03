@@ -12,7 +12,7 @@ def matrix_divided(matrix, div):
     Raises:
         TypeError: if the element is not integer or float
         TypeError: If the matrix contains rows of different sizes
-        TypeError: if the divisor is not an integer or flaot value
+        TypeError: if the divisor is not an integer or float value
         ZeroDivisionError: if the divisor is zero
 
     Returns: New matrix of the result
@@ -35,13 +35,4 @@ def matrix_divided(matrix, div):
 
     result = [list(map(lambda x: round(x / div, 2), row)) for row in matrix]
     return result
-
-
-if __name__ == "__main__":
-    matrix = [
-        [1, 2, 3],
-        [4, 5, 6]
-    ]
-    print(matrix_divided(matrix, 3))
-    print(matrix)
 
