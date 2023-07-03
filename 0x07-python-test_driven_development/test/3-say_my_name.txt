@@ -1,0 +1,31 @@
+The ``3-say_my_name`` module
+============================
+
+Using ``say_my_name``
+---------------------
+
+This module define a function for printing name of a person ``say_my_name(first_name, last_name="")``
+
+Usage:
+======
+
+``say_my_name(first_name, last_name="")`` print the name in full
+
+::
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    John Smith
+
+::
+    >>> say_my_name("Walter", "White")
+    Walter White
+
+::
+
+The function works with single argument
+    >>> say_my_name("George")
+    George
+
+Notice: The  last_name argument of the function has a default argument
+
+

@@ -30,3 +30,11 @@ if __name__ == "__main__":
         say_my_name(12, "White")
     except Exception as e:
         print(e)
+
+
+class test:
+    def __init__(self):
+        pass
+
+    def __repr__(self):
+        pass
