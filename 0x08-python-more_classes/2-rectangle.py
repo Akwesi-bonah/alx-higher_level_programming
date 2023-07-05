@@ -53,7 +53,3 @@ class Rectangle:
         b = self.__height * 2
 
         return a + b
-
-
-if __name__ == "__main__":
-   pass
