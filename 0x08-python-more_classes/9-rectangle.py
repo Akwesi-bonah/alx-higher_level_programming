@@ -79,6 +79,8 @@ class Rectangle:
         Args:
             size : the width and height of the rectangle
         """
+        if size < 0:
+            raise ValueError("width must be >= 0")
         return cls(size, size)
 
     def __str__(self):
@@ -98,9 +100,3 @@ class Rectangle:
         """Return message when the class is deleted"""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-
-
-if __name__ == "__main__":
-    my_square = Rectangle.square(5)
-    print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
-    print(my_square)
