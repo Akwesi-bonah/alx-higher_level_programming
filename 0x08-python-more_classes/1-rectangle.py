@@ -11,6 +11,10 @@ class Rectangle:
             width: define the width of the rectangle
             height: define the height of the rectangle
         """
+        if height < 0:
+            raise ValueError("height my be >= 0")
+        if width < 0:
+            raise ValueError("width my be >= 0")
         self.__height = height
         self.__width = width
 
