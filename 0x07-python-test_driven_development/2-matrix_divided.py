@@ -35,4 +35,3 @@ def matrix_divided(matrix, div):
 
     result = [list(map(lambda x: round(x / div, 2), row)) for row in matrix]
     return result
-
