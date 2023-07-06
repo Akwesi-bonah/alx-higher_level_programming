@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Difine a function that print square"""
+"""Define a function that print square"""
 
 
 def print_square(size):
@@ -23,3 +23,19 @@ def print_square(size):
 
     for i in range(1, size + 1):
         print("#" * size)
+
+
+if __name__ == "__main__":
+    print_square(4)
+    print("")
+    print_square(10)
+    print("")
+    print_square(0)
+    print("")
+    print_square(1)
+    print("")
+    try:
+        print_square(-1)
+    except Exception as e:
+        print(e)
+    print("")

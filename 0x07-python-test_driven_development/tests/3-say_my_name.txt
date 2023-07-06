@@ -28,4 +28,20 @@ The function works with single argument
 
 Notice: The  last_name argument of the function has a default argument
 
+::
+
+the function checks for invalided argument for first name
+    >>> say_my_name(12)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+::
+
+the function also check for invalided argument for last name
+
+    >>> say_my_name("George",12)
+     Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
 

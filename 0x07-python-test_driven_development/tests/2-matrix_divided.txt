@@ -60,6 +60,7 @@ floats. If ``matrix`` is not a list, a TypeError is raised.
     >>> matrix = "not a list"
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
+    ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 ::
@@ -67,6 +68,7 @@ floats. If ``matrix`` is not a list, a TypeError is raised.
     >>> matrix = None
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
+    ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 Note that an empty list will raise the TypeError.
 
@@ -75,6 +77,7 @@ Note that an empty list will raise the TypeError.
     >>> matrix = []
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
+    ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 But an empty list of lists will succeed.
@@ -93,6 +96,7 @@ lists.
     >>> matrix = [1, 2, 3]
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
+    ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 The same TypeError is raised yet again if any elements in ``matrix`` are
@@ -120,6 +124,7 @@ of different sizes, a new TypeError is raised.
     ... ]
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
+    ...
     TypeError: Each row of the matrix must have the same size
 
 
@@ -137,12 +142,14 @@ is raised.
     ... ]
     >>> print(matrix_divided(matrix, "not a number"))
     Traceback (most recent call last):
+    ...
     TypeError: div must be a number
 
 ::
 
     >>> print(matrix_divided(matrix, None))
     Traceback (most recent call last):
+    ...
     TypeError: div must be a number
 
 ``div`` must also be non-zero. Otherwise, a ZeroDivisionError is raised.
@@ -151,4 +158,5 @@ is raised.
 
     >>> print(matrix_divided(matrix, 0))
     Traceback (most recent call last):
+    ...
     ZeroDivisionError: division by zero
