@@ -1,4 +1,4 @@
-#!/us/bin/pyhton3
+#!/us/bin/python3
 """Define a function to search and append
 text if search string is found"""
 
