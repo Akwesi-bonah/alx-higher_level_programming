@@ -36,6 +36,7 @@ class Student:
         for key, value in json.items():
             setattr(self, key, value)
 
+
 if __name__ == "__main__":
     import os
     import sys

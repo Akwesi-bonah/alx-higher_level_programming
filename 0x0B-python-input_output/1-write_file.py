@@ -10,12 +10,7 @@ def write_file(filename="", text=""):
 
     for _ in text:
         if _.isspace() or _ == '\n':
-            count+=1
-        count +=1
+            count += 1
+        count += 1
     return count
 
-
-if __name__ == "__main__":
-
-    nb_characters = write_file("my_first_file.txt", "This School is so cool!\n")
-    print(nb_characters)
