@@ -3,7 +3,12 @@
 
 
 def append_write(filename="", text=""):
-    """Define append function"""
+    """
+    Define append function
+    Args:
+        filename: file to append string
+        text: text to append to the file
+    """
     count = 0
     with open(filename, 'a+', encoding="utf-8") as file:
         file.write(text)
@@ -13,8 +18,3 @@ def append_write(filename="", text=""):
                 count += 1
             count += 1
         return count
-
-
-if __name__ == "__main__":
-    nb_characters_added = append_write("append_write.txt", "This School is so cool!\n")
-    print(nb_characters_added)
