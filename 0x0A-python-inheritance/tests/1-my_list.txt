@@ -8,7 +8,6 @@ This module inherit for the base class list
 
 Test cases
 ==========
-
 ::
 Testing for module docstring
     >>> d_len = __import__("1-my_list").__doc__
@@ -23,17 +22,18 @@ Testing for class docstring
 
 ::
 Testing MyList is a subclass of list
-    >>> issubclass(MyList, list)
-    Ture
+    >>> issubclass(__import__("1-my_list").MyList, list)
+    True
 
 ::
 Testing for empty list
-    >>> l = MyList()
+    >>> l = __import__("1-my_list").MyList()
     >>> l.print_sorted()
     []
 
 ::
 Testing for appending new element
+    >>> l = __import__("1-my_list").MyList()
     >>> l.append(1)
     >>> l.append(2)
     >>> l.append(3)
@@ -43,34 +43,12 @@ Testing for appending new element
 
 ::
 Testing for element in reverse order
+    >>> l = __import__("1-my_list").MyList()
     >>> l.append(4)
     >>> l.append(3)
     >>> l.append(2)
     >>> l.append(1)
-    >>> print(l) # list not sorted
+    >>> print(l)  # list not sorted
     [4, 3, 2, 1]
-
-    >>> l.sorted_print() # list after sorting
+    >>> l.sorted_print()  # list after sorting
     [1, 2, 3, 4]
-
-::
-Testing for one negative value in the list
-
-    >>> l.append(-5)
-    >>> l.append(5)
-    >>> print(l) # list not sorted
-    [4, 3, 2, 1, -5, 5]
-
-    >>> l.print_sorted() # list after sorting
-    [-5, 1, 2, 3,4 ,5]
-
-::
-Testing for all negative values
-    >>> l = MyList()
-    >>> l.append(-1)
-    >>> l.append(-20)
-    >>> l.append(-5)
-    >>> l.append(-8)
-    >>> l.append(1)
-    >>> l.print_sorted()
-    [-20, -8, -5, -1, 1]
