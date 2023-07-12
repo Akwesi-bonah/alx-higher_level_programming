@@ -9,12 +9,12 @@ def append_write(filename="", text=""):
         filename: file to append string
         text: text to append to the file
     """
-    count = 0
+    # count = 0
     with open(filename, 'a+', encoding="utf-8") as file:
-        file.write(text)
+        return file.write(text)
 
-        for _ in text:
-            if _.isspace() or _ == '\n':
-                count += 1
-            count += 1
-        return count
+        # for _ in text:
+        #     if _.isspace() or _ == '\n':
+        #         count += 1
+        #     count += 1
+        # return count
