@@ -1,18 +1,12 @@
-class Base():
-    """ My base class """
 
-    __nb_instances = 0
+def test_args_kwargs(arg1, arg2, arg3):
+    print(f'arg1 {arg1}')
+    print(f'arg2 {arg2}')
+    print(f'arg3 {arg3}')
 
-    def __init__(self):
-        Base.__nb_instances += 1
-        self.id = Base.__nb_instances
 
-class User(Base):
-    """ My User class """
+args = ('two', 3,5)
+kwargs = {'arg3': 3, 'arg2': 'two', 'arg1':5}
 
-    def __init__(self):
-        super().__init__()
-        self.id += 99
-
-u = User()
-print(u.id)
+test_args_kwargs(*args)
+test_args_kwargs(**kwargs)
