@@ -1,7 +1,6 @@
 #!/usr/bin/python3
+from base import Base
 """Represent rectangle the inherit base class"""
-
-Base = __import__("base").Base
 
 
 class Rectangle(Base):
@@ -66,7 +65,7 @@ class Rectangle(Base):
         """Set value for x"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("x must be > 0")
         self.__x = value
 
@@ -80,7 +79,7 @@ class Rectangle(Base):
         """Set value for y"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("width must be > 0")
         self.__y = value
 
@@ -112,40 +111,51 @@ class Rectangle(Base):
         kwargs: new key pair value
 
         """
-        if args is None:
-            return self.__init__(self.width,
-                                 self.height, self.x, self.y)
-        if args:
-            for idx, value in enumerate(args):
-                match idx:
-                    case 0:
-                        self.id = value
-                    case 1:
-                        self.width = value
-                    case 2:
-                        self.height = value
-                    case 3:
-                        self.x = value
-                    case 4:
-                        self.y = value
-        elif kwargs:
-            for key, value in kwargs.items():
-                match key:
-                    case 'id':
-                        self.id = value
-                    case 'width':
-                        self.width = value
-                    case 'height':
-                        self.height = value
-                    case 'x':
-                        self.x = value
-                    case 'y':
-                        self.y = value
+        if args is not None and kwargs is not None:
+            if args:
+                for idx, value in enumerate(args):
+                    match idx:
+                        case 0:
+                            self.id = value
+                        case 1:
+                            self.width = value
+                        case 2:
+                            self.height = value
+                        case 3:
+                            self.x = value
+                        case 4:
+                            self.y = value
+            elif kwargs:
+                for key, value in kwargs.items():
+                    match key:
+                        case 'id':
+                            self.id = value
+                        case 'width':
+                            self.width = value
+                        case 'height':
+                            self.height = value
+                        case 'x':
+                            self.x = value
+                        case 'y':
+                            self.y = value
+            return
+        return self.__init__(self.width,
+                             self.height, self.x, self.y)
+
+    def to_dictionary(self):
+        """Rectangle instance to dictionary representation"""
+        return {
+            'x': self.x,
+            'y': self.y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
+        }
 
     def __str__(self):
         """string representation of the rectangle"""
         result = f'[{Rectangle.__name__}] ({self.id}) '
-        result += f'({self.x}/{self.y}) - {self.width}/{self.height}'
+        result += f'{self.x}/{self.y} - {self.width}/{self.height}'
         return result
 
 
@@ -154,69 +164,18 @@ if __name__ == "__main__":
     # r1 = Rectangle(10, 2)
     # # print(r1.id)
     #
-    # r2 = Rectangle(2, 10)
-    # # print(r2.id)
-    #
-    # r3 = Rectangle(10, 2, 0, 0, 12)
-    # # print(r3.id)
-    #
-    # r1 = Rectangle(3, 2)
-    # # print(r1.area())
-    #
-    # r2 = Rectangle(2, 10)
-    # # print(r2.area())
-    #
-    # r3 = Rectangle(8, 7, 0, 0, 12)
-    # # print(r3.area())
-    #
-    # r1 = Rectangle(4, 6)
-    # r1.display()
-    #
-    # print("---")
-    #
-    # r1 = Rectangle(2, 2)
-    # r1.display()
-    # r1 = Rectangle(4, 6, 2, 1, 12)
-    # print(r1)
-    #
-    # r2 = Rectangle(5, 5, 1)
-    # print
-    # r1 = Rectangle(2, 3, 2, 2)
-    # r1.display()
-    #
-    # print("---")
-    #
-    # r2 = Rectangle(3, 2, 1, 0)
-    # r2.display()
-    # r1 = Rectangle(10, 10, 10, 10)
-    # print(r1)
-    #
-    # r1.update(89)
-    # print(r1)
-    #
-    # r1.update(89, 2)
-    # print(r1)
-    #
-    # r1.update(89, 2, 3)
-    # print(r1)
-    #
-    # r1.update(89, 2, 3, 4)
-    # print(r1)
-    #
-    # r1.update(89, 2, 3, 4, 5)
-    # print(r1)
-    r1 = Rectangle(10, 10, 10, 10)
-    print(r1)
+    r1 = Rectangle(10, 7, 2, 8)
+    r2 = Rectangle(2, 4)
+    list_rectangles_input = [r1, r2]
 
-    r1.update(height=1)
-    print(r1)
+    Rectangle.save_to_file(list_rectangles_input)
 
-    r1.update(width=1, x=2)
-    print(r1)
+    list_rectangles_output = Rectangle.load_from_file()
 
-    r1.update(y=1, width=2, x=3, id=89)
-    print(r1)
+    for rect in list_rectangles_input:
+        print("[{}] {}".format(id(rect), rect))
 
-    r1.update(x=1, height=2, y=3, width=4)
-    print(r1)
-    pass
+    print("---")
+
+    for rect in list_rectangles_output:
+        print("[{}] {}".format(id(rect), rect))
