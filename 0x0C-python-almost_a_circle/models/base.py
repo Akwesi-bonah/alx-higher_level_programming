@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ represent base class for the project"""
 import json
-
+import csv
 
 class Base:
     """Define base class"""
@@ -77,18 +77,24 @@ class Base:
             return []
 
 
-if __name__ == "__main__":
-    b1 = Base()
-    print(b1.id)
+    @staticmethod
+    def load_from_file_from_csv(cls):
+        """ File to instances to csv"""
 
-    b2 = Base()
-    print(b2.id)
+        filename = str(cls.__name__) + ".csv"
+        try:
+            with open(filename, 'r') as file:
+                if cls.__name__ == 'Rectangle':
+                    names = ['id','width', 'height', 'x', 'y']
+                if cls.__name__ == 'Square':
+                    names = ['id', 'size', 'x','y']
+                list_dicts = csv.DictReader(file, fieldnames=names)
+                new_liat = [dict([key, int(value)]
+                                 for key, value in data.items())
+                            for data in list_dicts]
+                return [cls.create(**data) for data in list_dicts]
+        except IOError:
+            return []
 
-    b3 = Base()
-    print(b3.id)
 
-    b4 = Base(12)
-    print(b4.id)
 
-    b5 = Base()
-    print(b5.id)
