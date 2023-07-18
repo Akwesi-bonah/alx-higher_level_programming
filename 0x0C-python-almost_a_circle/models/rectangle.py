@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Represent rectangle the inherit base class"""
-Base = __import__("base").Base
+from models.base import Base
+
 
 class Rectangle(Base):
     """define rectangle that inherit Base"""
@@ -94,4 +95,79 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("width must be > 0")
         self.__y = value
+
+    def area(self):
+        """return the area of the rectangle"""
+        return self.width * self.height
+
+    def display(self):
+        """print the height and width"""
+
+        if self.width == 0 or self.height == 0:
+            return ""
+        for _ in range(1, self.height + 1):
+            [print(" ", end='') for _ in range(self.x)]
+            [print('#', end='') for _ in range(self.width)]
+            print('')
+
+    def update(self, *args, **kwargs):
+        """
+        update the rectangle
+
+        Args:
+            *args: new values
+                - 1st = id
+                - 2nd = width
+                - 3rd = height
+                - 4th = x
+                - 5th = y
+        kwargs: new key pair value
+
+        """
+        if args is not None and kwargs is not None:
+            if args:
+                for idx, value in enumerate(args):
+                    match idx:
+                        case 0:
+                            self.id = value
+                        case 1:
+                            self.width = value
+                        case 2:
+                            self.height = value
+                        case 3:
+                            self.x = value
+                        case 4:
+                            self.y = value
+            elif kwargs:
+                for key, value in kwargs.items():
+                    match key:
+                        case 'id':
+                            self.id = value
+                        case 'width':
+                            self.width = value
+                        case 'height':
+                            self.height = value
+                        case 'x':
+                            self.x = value
+                        case 'y':
+                            self.y = value
+            return
+        return self.__init__(self.width,
+                             self.height, self.x, self.y)
+
+    def to_dictionary(self):
+        """Rectangle instance to dictionary representation"""
+        return {
+            'x': self.x,
+            'y': self.y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
+        }
+
+    def __str__(self):
+        """string representation of the rectangle"""
+        result = f'[{Rectangle.__name__}] ({self.id}) '
+        result += f'{self.x}/{self.y} - {self.width}/{self.height}'
+        return result
 
