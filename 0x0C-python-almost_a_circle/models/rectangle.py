@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from base import Base
+from models.base import Base
 """Represent rectangle the inherit base class"""
 
 
@@ -21,6 +21,19 @@ class Rectangle(Base):
             TypeError: If either of x or y is not an int.
             ValueError: If either of x or y < 0.
         """
+        if type(height) is not int:
+            raise TypeError("height must be an integer")
+        if type(width) is not int:
+            raise TypeError("width must be an integer")
+        if type(x) is not int:
+            raise TypeError("x must be an integer")
+        if type(y) is not int:
+            raise TypeError("width must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
+        if y < 0:
+            raise ValueError("y must be >= 0")
+
         super().__init__(id)
         self.__width = width
         self.__height = height

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 """Represent a square class that inherit rectangle"""
 # Rectangle = __import__('rectangle').Rectangle
 
