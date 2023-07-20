@@ -2,8 +2,8 @@
 import sys
 import unittest
 import io
-from models.base import Base
-from models.rectangle import Rectangle
+from base import Base
+from rectangle import Rectangle
 
 
 class TestRectangleInstantiation(unittest.TestCase):
