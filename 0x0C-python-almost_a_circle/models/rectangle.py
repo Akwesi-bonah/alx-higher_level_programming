@@ -174,4 +174,3 @@ class Rectangle(Base):
         result = f'[{Rectangle.__name__}] ({self.id}) '
         result += f'{self.x}/{self.y} - {self.width}/{self.height}'
         return result
-

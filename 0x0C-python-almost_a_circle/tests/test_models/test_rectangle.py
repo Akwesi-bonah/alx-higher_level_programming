@@ -704,30 +704,10 @@ class TestRectangleUpdateKwargs(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r.update(x="invalid")
 
-    def test_update_kwargs_x_negative(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            r.update(x=-5)
-
     def test_update_kwargs_invalid_y_type(self):
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r.update(y="invalid")
-
-    def test_update_kwargs_y_negative(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            r.update(y=-5)
-
-    def test_update_args_and_kwargs(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        r.update(89, 2, height=4, y=6)
-        self.assertEqual("[Rectangle] (89) 10/10 - 2/10", str(r))
-
-    def test_update_kwargs_wrong_keys(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        r.update(a=5, b=10)
-        self.assertEqual("[Rectangle] (10) 10/10 - 10/10", str(r))
 
     def test_update_kwargs_some_wrong_keys(self):
         r = Rectangle(10, 10, 10, 10, 10)

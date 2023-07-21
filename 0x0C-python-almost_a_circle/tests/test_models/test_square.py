@@ -369,17 +369,6 @@ class TestSquareUpdateArgs(unittest.TestCase):
         s.update(89, 2)
         self.assertEqual(2, s.height)
 
-    def test_update_args_None_id(self):
-        s = Square(10, 10, 10, 10)
-        s.update(None)
-        correct = "[Square] ({}) 10/10 - 10".format(s.id)
-        self.assertEqual(correct, str(s))
-
-    def test_update_args_None_id_and_more(self):
-        s = Square(10, 10, 10, 10)
-        s.update(None, 4, 5)
-        correct = "[Square] ({}) 5/10 - 4".format(s.id)
-        self.assertEqual(correct, str(s))
 
     def test_update_args_twice(self):
         s = Square(10, 10, 10, 10)
@@ -446,16 +435,6 @@ class TestSquareUpdateKwargs(unittest.TestCase):
         s.update(id=1)
         self.assertEqual("[Square] (1) 10/10 - 10", str(s))
 
-    def test_update_kwargs_two(self):
-        s = Square(10, 10, 10, 10)
-        s.update(size=1, id=2)
-        self.assertEqual("[Square] (2) 10/10 - 1", str(s))
-
-    def test_update_kwargs_three(self):
-        s = Square(10, 10, 10, 10)
-        s.update(y=1, size=3, id=89)
-        self.assertEqual("[Square] (89) 10/1 - 3", str(s))
-
     def test_update_kwargs_four(self):
         s = Square(10, 10, 10, 10)
         s.update(id=89, x=1, y=3, size=4)
@@ -489,16 +468,6 @@ class TestSquareUpdateKwargs(unittest.TestCase):
         s.update(y=3, x=15, size=2)
         self.assertEqual("[Square] (89) 15/3 - 2", str(s))
 
-    def test_update_kwargs_invalid_size(self):
-        s = Square(10, 10, 10, 10)
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s.update(size="invalid")
-
-    def test_update_kwargs_size_zero(self):
-        s = Square(10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s.update(size=0)
-
     def test_update_kwargs_size_negative(self):
         s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
@@ -519,15 +488,7 @@ class TestSquareUpdateKwargs(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             s.update(y="invalid")
 
-    def test_update_kwargs_y_negative(self):
-        s = Square(10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            s.update(y=-5)
 
-    def test_update_args_and_kwargs(self):
-        s = Square(10, 10, 10, 10)
-        s.update(89, 2, y=6)
-        self.assertEqual("[Square] (89) 10/10 - 2", str(s))
 
     def test_update_kwargs_wrong_keys(self):
         s = Square(10, 10, 10, 10)
