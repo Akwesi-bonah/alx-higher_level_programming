@@ -1,6 +1,7 @@
 #!/usr/bin/node
-
-if (typeof process.argv[2] === "undefined" || isNaN(process.argv[2])) {
+//  script that prints a square
+if (typeof process.argv[2] === "undefined" ||
+ isNaN(process.argv[2])) {
   console.log("Missing size");
 } else {
   const num = Number(process.argv[2]);
