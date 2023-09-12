@@ -1,4 +1,4 @@
-!/usr/bin/node
+#!/usr/bin/node
 // Print if there is an argument
 
 if (process.argv.lenght === 2)
