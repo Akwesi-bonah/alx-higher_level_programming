@@ -8,3 +8,4 @@ if (process.argv.length <= 3) {
   })[1];
   console.log(second);
 }
+

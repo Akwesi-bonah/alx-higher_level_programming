@@ -17,3 +17,4 @@ if (
 } else {
   console.log(factorial(parseInt(process.argv[2], 10)));
 }
+
