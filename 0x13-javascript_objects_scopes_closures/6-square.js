@@ -1,5 +1,6 @@
-//#!/usr/bin/node
+#!/usr/bin/node
 const oldclass = require("./5-square");
+
 class Square extends oldclass {
   charPrint(C) {
     if (C === undefined) {
@@ -14,4 +15,5 @@ class Square extends oldclass {
     }
   }
 }
+
 module.exports = Square;
