@@ -19,8 +19,7 @@ if __name__ == "__main__":
     sqlcmd = connector.cursor()
     sqlcmd.execute("""
     SELECT c.id, c.name, s.name
-    FROM cities AS c INNER JOIN states AS s ON s.id=c.state_id 
-    """)
+    FROM cities AS c INNER JOIN states AS s ON s.id=c.state_id """)
 
     rows = sqlcmd.fetchall()
     for row in rows:
