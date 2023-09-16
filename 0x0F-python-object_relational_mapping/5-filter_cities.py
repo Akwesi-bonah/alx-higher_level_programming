@@ -4,10 +4,10 @@ import MySQLdb as Sql
 import sys
 
 if __name__ == "__main__":
-    name = "Admin"
-    pwd = "1122"
-    dbName = "alx_db"
-    arg = "Texas" # sys.argv[4]
+    name = sys.argv[1]
+    pwd = sys.argv[2]
+    dbName = sys.argv[3]
+    arg = sys.argv[4]
 
     connector = Sql.connect(
         host="localhost",

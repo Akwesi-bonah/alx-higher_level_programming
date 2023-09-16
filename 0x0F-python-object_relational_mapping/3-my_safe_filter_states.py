@@ -18,7 +18,7 @@ if __name__ == "__main__":
     )
 
     sqlcmd = connector.cursor()
-    sqlcmd.execute(f"SELECT * FROM states WHERE name LIKE  %s", (arg,))
+    sqlcmd.execute("SELECT * FROM states WHERE name LIKE  %s", (arg,))
 
     rows = sqlcmd.fetchall()
     for row in rows:
