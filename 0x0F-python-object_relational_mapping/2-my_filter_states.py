@@ -18,7 +18,8 @@ if __name__ == "__main__":
     )
 
     sqlcmd = connector.cursor()
-    sqlcmd.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'".format(arg))
+    sqlcmd.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
+                   .format(arg))
 
     rows = sqlcmd.fetchall()
     for row in rows:
