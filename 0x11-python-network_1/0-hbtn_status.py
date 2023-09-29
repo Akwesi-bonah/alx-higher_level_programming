@@ -3,9 +3,8 @@
 cript that fetches https://alx-intranet.hbtn.io/status
 """
 
-
+import urllib.request as url
 if __name__ == "__main__":
-    import urllib.request as url
 
     with url.urlopen('https://alx-intranet.hbtn.io/status') as re:
         content = re.read()
