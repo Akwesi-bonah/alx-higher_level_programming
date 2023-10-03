@@ -6,6 +6,7 @@ with the email as a parameter,
 and finally displays the body of the response.
 """
 
+
 if __name__ == "__main__":
     import sys
     import requests as re
