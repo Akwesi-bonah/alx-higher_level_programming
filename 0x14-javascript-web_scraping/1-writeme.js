@@ -1,11 +1,6 @@
 #!/usr/bin/node
-const request = require('request');
-const url = process.argv[2];
-
-request.get(url, (error, response) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(`code: ${response.statusCode}`);
-  }
+// writes a string to a file
+let fs = require('fs');
+fs.writeFile(process.argv[2], process.argv[3], function (err) {
+  if (err) throw err;
 });
