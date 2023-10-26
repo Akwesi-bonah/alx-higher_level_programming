@@ -26,4 +26,4 @@ function printCharacters (characters, index) {
       }
     }
   });
-};
+}
