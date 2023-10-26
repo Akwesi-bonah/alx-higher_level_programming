@@ -1,7 +1,11 @@
 #!/usr/bin/node
-// (_8^(|) displays the status code of a GET request
-let request = require('request');
-request(process.argv[2], function (error, response) {
-  if (error) throw error;
-  console.log('code:', response.statusCode);
+const request = require('request');
+const url = process.argv[2];
+
+request.get(url, (error, response) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(`code: ${response.statusCode}`);
+  }
 });
